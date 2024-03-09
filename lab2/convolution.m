@@ -12,11 +12,11 @@ time_conv = linspace(time(1), time(end), length(convolution_result));
 figure
 subplot(3,1,1);
 plot(time, rect_pulse, '-r');
-subtitle('Impuls prostokatny')
+subtitle('Impuls prostokatny','Interpreter', 'latex')
 subplot(3,1,2);
 plot(time, exponential, '-b');
-subtitle('Funkcja wykladnicza')
+subtitle('Funkcja wykladnicza','Interpreter', 'latex')
 subplot(3,1,3);
 plot(time_conv, convolution_result, '-k');
-subtitle('Splot')
+subtitle('Splot','Interpreter', 'latex')
 
