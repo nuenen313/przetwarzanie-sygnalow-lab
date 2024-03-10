@@ -1,5 +1,6 @@
 # Rozwiązania zadań z laboratorium z Przetwarzania sygnałów 
 
+[Link do skryptu z podstawami MATLABa](https://www.mccormick.northwestern.edu/documents/students/undergraduate/introduction-to-matlab.pdf)
 ## Ćwiczenie 2 
 W folderze lab2 są funkcje narzędziowe do rozwiązania zadań:
 - `gen_time` - na podstawie podanej liczby próbek `N` i częstotliwości próbkowania `fs` generuje jednowymiarową tablicę zawierającą czasy kolejnych próbek,
