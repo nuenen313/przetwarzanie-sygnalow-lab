@@ -3,8 +3,14 @@ clc
 clear
 close all
 
-time = gen_time(500, 10000); % 500 próbek, fs = 10 kHz
-time2 = gen_time(100, 5000);
+N1 = 500;
+fs1 = 10000;
+
+N2 = 100;
+fs2 = 5000;
+
+time = gen_time(N1, fs1); % 500 próbek, fs = 10 kHz
+time2 = gen_time(N2, fs2);
 
 fsin = 100;
 A = 2;
@@ -15,12 +21,12 @@ sinus1 = gen_sin(time, fsin, A, fi); % fsin = 100 Hz, A = 2, przesunięcie
 
 delta1 = gen_delta(time2);
 
-tr = time(2)*60;
-tf = time(2)*200;
+tr = time(2)*250;
+tf = time(2)*250;
 triangle1 = gen_triangle(time, A, tr, tf);
 
-u = time(length(time)/4);
-s = 0.005;
+u = time(length(time)/2);
+s = 0.005/10;
 gauss1 = gen_gauss(time, u, s);
 
 delta_delayed = sig_delay_N(delta1, 26); % delta przesunięta o 26 próbek
@@ -39,14 +45,14 @@ plot(time2, delta1, 'or', 'MarkerSize', 5);
 xlabel('czas (s)');
 ylabel('x(t)');
 grid on
-title('Impuls Kroeneckera');
+title('Impuls Kroeneckera', 'Interpreter', 'latex');
 
 figure
 plot(time, triangle1, '--ok', 'MarkerSize', 5, 'MarkerEdgeColor','blue');
 xlabel('czas (s)');
 ylabel('x(t)')
 grid on
-title('Impuls trojkatny');
+title('Impuls trojkatny', 'Interpreter','latex');
 
 figure
 plot(time, gauss1, '--ok', 'MarkerSize', 5, 'MarkerEdgeColor','magenta');
@@ -54,14 +60,14 @@ grid on
 xlabel('czas (s)')
 ylabel('x(t)')
 ylim([min(gauss1)-0.1 max(gauss1)+0.1])
-title('Impuls Gaussa')
+title('Impuls Gaussa', 'Interpreter', 'latex')
 
 figure
-plot(time2, delta1, 'or', 'MarkerSize', 5);
+stem(time2, delta1, 'or', 'MarkerSize', 5);
 hold on
-plot(time2, delta_delayed, 'ok', 'MarkerSize', 5);
+stem(time2, delta_delayed, 'ok', 'MarkerSize', 5);
 xlabel('czas (s)');
 ylabel('x(t)');
 grid on
-title('Impuls Kroeneckera z przesunieciem');
+title('Impuls Kroeneckera z przesunieciem', 'Interpreter', 'latex');
 legend('Oryginalny sygnal', 'Przesuniety sygnal', 'Interpreter', 'latex')
